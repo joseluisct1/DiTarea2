@@ -33,6 +33,27 @@ public class tarea2Controller {
             // Manejar la excepción, por ejemplo, mostrar un mensaje de error
         }
     }
+    public void abrirCalculadoraFXML(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("calculadora.fxml"));
+            Parent root = loader.load();
+
+            // Configurar el controlador si es necesario
+            // ProcesadorController controller = loader.getController();
+
+            Stage stage = new Stage();
+            stage.setTitle("Calculadora");
+            stage.setScene(new Scene(root));
+
+            // Cargar el archivo de estilo CSS para la nueva ventana
+            stage.getScene().getStylesheets().add(getClass().getResource("estiloportada.css").toExternalForm());
+
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Manejar la excepción, por ejemplo, mostrar un mensaje de error
+        }
+    }
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;

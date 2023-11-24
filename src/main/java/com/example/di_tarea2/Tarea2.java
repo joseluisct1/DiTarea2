@@ -19,9 +19,6 @@ public class Tarea2 extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tarea2.fxml"));
         Parent root = loader.load();
 
-        // Configurar el controlador si es necesario
-        //TuController controller = loader.getController();
-        //controller.setPrimaryStage(primaryStage); // Puedes agregar un método para establecer la referencia a primaryStage en TuController si es necesario
 
         Scene scene = new Scene(root);
 
@@ -34,20 +31,7 @@ public class Tarea2 extends Application {
         primaryStage.show();
     }
 
-    // Método para abrir el archivo FXML
-    /*private void abrirProcesadorFXML() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("procesador2.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Procesador");
-            stage.setScene(new Scene(root, 800, 600));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            // Manejar la excepción, por ejemplo, mostrar un mensaje de error
-        }
-    }*/
+
 
     public static void main(String[] args) {
         launch(args);
