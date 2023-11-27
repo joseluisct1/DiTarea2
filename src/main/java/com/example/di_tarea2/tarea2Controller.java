@@ -25,7 +25,7 @@ public class tarea2Controller {
             stage.setScene(new Scene(root, 800, 600));
 
             // Cargar el archivo de estilo CSS para la nueva ventana
-            stage.getScene().getStylesheets().add(getClass().getResource("estiloportada.css").toExternalForm());
+            stage.getScene().getStylesheets().add(getClass().getResource("procesador.css").toExternalForm());
 
             stage.show();
         } catch (Exception e) {

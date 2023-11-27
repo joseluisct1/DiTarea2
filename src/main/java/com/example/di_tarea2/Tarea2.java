@@ -4,10 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+
+import java.util.Objects;
 
 public class Tarea2 extends Application {
 
@@ -23,7 +22,7 @@ public class Tarea2 extends Application {
         Scene scene = new Scene(root);
 
         // Cargar el archivo de estilo CSS solo para la escena principal
-        scene.getStylesheets().add(getClass().getResource("estiloportada.css").toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("estiloportada.css")).toExternalForm());
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         // Centra la ventana en la pantalla

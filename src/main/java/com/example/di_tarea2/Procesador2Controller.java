@@ -23,6 +23,7 @@ public class Procesador2Controller {
         stage.close();
     }
     public void initialize() {
+
         Tooltip tooltipBuscar = new Tooltip("Buscar");
         Tooltip.install(toolBuscar, tooltipBuscar);
         // inicializo el combobox a 100%

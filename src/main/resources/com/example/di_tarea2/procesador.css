@@ -1,0 +1,30 @@
+/* Estilo para la portada de la aplicación */
+#procesadorBox{
+
+}
+#miTextArea{
+    -fx-border-style: solid;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+}
+#toolbarCabecera{
+    -fx-background-color: #cbcbee;
+    -fx-background-radius: 15;
+}
+.combo-box{
+    fx-background-color: #cbcbee;
+}
+
+.menu-bar{
+    -fx-text-fill: black;
+}
+.menu-item{
+    -fx-text-fill: red;
+}
+.split-pane{
+    -fx-background-color: red;
+    -fx-border-style: none;
+}
+
+
+
