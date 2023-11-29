@@ -4,10 +4,11 @@
 <?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -15,329 +16,801 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
 <VBox fx:id="procesadorBox" prefHeight="754.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.di_tarea2.Procesador2Controller">
-  <children>
-      <BorderPane prefHeight="63.0" prefWidth="960.0">
-         <right>
-            <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-              <buttons>
-                <Button mnemonicParsing="false" text="Button" />
-              </buttons>
-               <BorderPane.margin>
-                  <Insets right="15.0" />
-               </BorderPane.margin>
-            </ButtonBar>
-         </right>
-      </BorderPane>
+    <BorderPane prefHeight="45.0" prefWidth="960.0">
+        <left>
+        <Label prefHeight="27.0" prefWidth="353.0" text="Documento Sin Titulo" BorderPane.alignment="CENTER">
+            <font>
+                <Font size="18.0" />
+            </font>
+            <padding>
+                <Insets left="30.0" />
+            </padding>
+        </Label>
+        </left>
+        <VBox.margin>
+        <Insets bottom="2.0" top="2.0" />
+        </VBox.margin>
+        <padding>
+        <Insets bottom="5.0" top="5.0" />
+        </padding>
+        <right>
+            <HBox prefHeight="38.0" prefWidth="377.0" BorderPane.alignment="CENTER">
+                <padding>
+                    <Insets right="10.0" />
+                </padding>
+                <Button fx:id="cmdset" mnemonicParsing="false" prefHeight="37.0" prefWidth="38.0">
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/setting.png" />
+                    </ImageView>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Configuración" />
+                </tooltip>
+                </Button>
+                <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                <Separator layoutX="38.0" layoutY="10.0" orientation="VERTICAL" prefHeight="200.0" visible="false" />
+
+                <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                <Button fx:id="cmdaccesi" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="38.0">
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/idioma.png" />
+                    </ImageView>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Idioma" />
+                </tooltip>
+                </Button>
+                <Separator layoutX="114.0" layoutY="10.0" orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                <Separator layoutX="172.0" layoutY="10.0" orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="144.0" style="-fx-background-radius: 15;" text="Compartir">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Separator layoutX="204.0" layoutY="10.0" orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                <Separator layoutX="87.0" layoutY="10.0" orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                <Button fx:id="cmdusuario" layoutX="126.0" layoutY="10.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="38.0">
+                <graphic>
+                    <ImageView fx:id="imguser" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/perfil.png" />
+                    </ImageView>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Perfil Usuario" />
+                </tooltip>
+                </Button>
+            </HBox>
+        </right>
+    </BorderPane>
     <MenuBar style="-fx-background-color: #FFFFFF;" VBox.vgrow="NEVER">
-      <menus>
+        <contextMenu>
+            <ContextMenu>
+                <items>
+                    <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                </items>
+            </ContextMenu>
+        </contextMenu>
         <Menu mnemonicParsing="false" text="Nuevo">
-          <items>
-                  <Menu mnemonicParsing="false" text="Nuevo">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
-            <MenuItem mnemonicParsing="false" text="Abrir">
-                     <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../img/abrir.png" />
-                           </image>
+            <Menu mnemonicParsing="false" text="Nuevo">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/nuevo.png" />
+                    </ImageView>
+                </graphic>
+                <MenuItem mnemonicParsing="false" text="Documento">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../../img/nuevodocumento.png" />
                         </ImageView>
-                     </graphic>
-                     <accelerator>
-                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator></MenuItem>
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="De la galeria de plantillas" />
+            </Menu>
+            <MenuItem mnemonicParsing="false" text="Abrir">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/abrirdocumento.png" />
+                    </ImageView>
+                </graphic>
+                <accelerator>
+                    <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Hacer una copia">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/hacercopia.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <Menu mnemonicParsing="false" text="Compartir">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/compartir.png" />
+                    </ImageView>
+                </graphic>
+                <MenuItem mnemonicParsing="false" text="Compartir con otros" />
+                <MenuItem mnemonicParsing="false" text="Publicar en la web" />
+            </Menu>
+            <Menu mnemonicParsing="false" text="Correo electronico">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/email.png" />
+                    </ImageView>
+                </graphic>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Descargar">
+                <graphic>
+                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/download.png" />
+                    </ImageView>
+                </graphic>
+                <MenuItem mnemonicParsing="false" text="Microsoft Word (.docx)" />
+                <MenuItem mnemonicParsing="false" text="Formato OpenDocument (.odt)" />
+                <MenuItem mnemonicParsing="false" text="Formato de Texto enriquecido (.rtf)" />
+                <MenuItem mnemonicParsing="false" text="Documento PDF (.pdf)" />
+                <MenuItem mnemonicParsing="false" text="Texto sin formato (.txt)" />
+                <MenuItem mnemonicParsing="false" text="Página web (.html, comprimido)" />
+                <MenuItem mnemonicParsing="false" text="Publicación EPUB (.epub)" />
+            </Menu>
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
+            <MenuItem mnemonicParsing="false" text="Cambiar nombre">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/cambiarnombre.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Mover">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/moverarchivo.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Mover a la papelera">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/delete.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
+            <MenuItem mnemonicParsing="false" text="Detalles">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/info.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <Menu mnemonicParsing="false" text="Idioma">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/idioma.png" />
+                    </ImageView>
+                </graphic>
+            </Menu>
+            <MenuItem mnemonicParsing="false" text="Configuracion de página">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/setting.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Imprimir">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/print.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Salir">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/close.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
         </Menu>
         <Menu mnemonicParsing="false" text="Editar">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Deshacer" />
-            <MenuItem mnemonicParsing="false" text="Rehacer" />
+            <MenuItem mnemonicParsing="false" text="Deshacer">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/undo.png" />
+                    </ImageView>
+                </graphic>
+                <accelerator>
+                    <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Rehacer">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/redo.png" />
+                    </ImageView>
+                </graphic>
+                <accelerator>
+                    <KeyCodeCombination alt="UP" code="Y" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                </accelerator>
+            </MenuItem>
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cortar" />
-            <MenuItem mnemonicParsing="false" text="Copiar" />
-            <MenuItem mnemonicParsing="false" text="Pegar" />
-            <MenuItem mnemonicParsing="false" text="Pegar sin formato" />
+            <MenuItem mnemonicParsing="false" text="Cortar">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/cut.png" />
+                    </ImageView>
+                </graphic>
+                <accelerator>
+                    <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Copiar">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/copy.png" />
+                    </ImageView>
+                </graphic>
+                <accelerator>
+                    <KeyCodeCombination alt="UP" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Pegar">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/paste.png" />
+                    </ImageView>
+                </graphic>
+                <accelerator>
+                    <KeyCodeCombination alt="UP" code="V" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Pegar sin formato">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/paste_off.png" />
+                    </ImageView>
+                </graphic>
+                <accelerator>
+                    <KeyCodeCombination alt="UP" code="V" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                </accelerator>
+            </MenuItem>
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Seleccionar todo" />
-            <MenuItem mnemonicParsing="false" text="Eliminar" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Buscar y reemplazar" />
-          </items>
+            <MenuItem mnemonicParsing="false" text="Seleccionar todo">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/select_all.png" />
+                    </ImageView>
+                </graphic>
+                <accelerator>
+                    <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Eliminar">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/delete.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Buscar y reemplazar">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/find_replace.png" />
+                    </ImageView>
+                </graphic>
+                <accelerator>
+                    <KeyCodeCombination alt="UP" code="H" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                </accelerator>
+            </MenuItem>
         </Menu>
         <Menu mnemonicParsing="false" text="Ver">
-          <items>
-                  <Menu mnemonicParsing="false" text="Modo">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <CheckMenuItem mnemonicParsing="false" text="Mostrar diseño impresión" />
-                  <CheckMenuItem mnemonicParsing="false" text="Mostrar regla" />
-                  <CheckMenuItem mnemonicParsing="false" text="Mostrar esquema" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Pantalla Completa" />
-          </items>
+            <Menu mnemonicParsing="false" text="Modo">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/renombrar.png" />
+                    </ImageView>
+                </graphic>
+                <MenuItem mnemonicParsing="false" text="Edición" />
+                <MenuItem mnemonicParsing="false" text="Sugerencias" />
+                <MenuItem mnemonicParsing="false" text="Visualización" />
+            </Menu>
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <CheckMenuItem mnemonicParsing="false" text="Mostrar diseño impresión" />
+            <CheckMenuItem mnemonicParsing="false" text="Mostrar regla" />
+            <CheckMenuItem mnemonicParsing="false" text="Mostrar esquema" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Pantalla Completa" />
         </Menu>
-            <Menu mnemonicParsing="false" text="Insertar">
-               <items>
-                  <Menu mnemonicParsing="false" text="Imagen">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Tabla">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Dibujo">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Grafico">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-                     </items>
-                  </Menu>
-                  <MenuItem mnemonicParsing="false" text="Linea Horizontal" />
-                  <MenuItem mnemonicParsing="false" text="Emoji" />
-                  <MenuItem mnemonicParsing="false" text="Menú desplegables" />
-                  <MenuItem mnemonicParsing="false" text="Nota a pie de página" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Nota a pie de página" />
-                  <Menu mnemonicParsing="false" text="Marca de agua">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Encabezados y pies de página">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Saltos">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                     </items>
-                  </Menu>
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Enlace" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Marcador" />
-               </items>
+        <Menu mnemonicParsing="false" text="Insertar">
+            <MenuItem mnemonicParsing="false" text="Imagen">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_image_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Tabla">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_table_chart_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Dibujo">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_color_lens_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Grafico">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_bar_chart_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Linea Horizontal">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_horizontal_rule_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Emoji">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_mood_black_24dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Formato">
+            <Menu mnemonicParsing="false" text="Texto">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/bold.png" />
+                    </ImageView>
+                </graphic>
+                <MenuItem mnemonicParsing="false" text="Negrita">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../../img/bold.png" />
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Cursiva">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../../img/cursiva.png" />
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Subrayar">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../../img/underline.png" />
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Tachar">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../../img/baseline_strikethrough_s_black_18dp.png" />
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Superindice">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../../img/baseline_superscript_black_18dp.png" />
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Subindice">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../../img/baseline_subscript_black_18dp.png" />
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
             </Menu>
-            <Menu mnemonicParsing="false" text="Formato">
-               <items>
-                  <Menu mnemonicParsing="false" text="Texto">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Estilos de Párrafo">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Alinear y aplicar sangría">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Interlineado y espaciado entre párrafos">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Columnas ">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Viñetas y numeración">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-                     </items>
-                  </Menu>
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Encabezados y pies de página" />
-                  <MenuItem mnemonicParsing="false" text="Números de página" />
-                  <MenuItem mnemonicParsing="false" text="Orientación de la página" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Borrar formato" />
-               </items>
+            <Menu mnemonicParsing="false" text="Estilos de Párrafo">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_format_align_justify_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+                <MenuItem mnemonicParsing="false" text="Bordes y Sombreado" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" text="Texto Normal" />
+                <MenuItem mnemonicParsing="false" text="Titulo" />
+                <MenuItem mnemonicParsing="false" text="Subtitulo" />
+                <MenuItem mnemonicParsing="false" text="Encabezado 1" />
+                <MenuItem mnemonicParsing="false" text="Encabezado 2" />
+                <MenuItem mnemonicParsing="false" text="Encabezado 3" />
+                <MenuItem mnemonicParsing="false" text="Encabezado 4" />
+                <MenuItem mnemonicParsing="false" text="Encabezado 5" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" text="Opciones" />
             </Menu>
-            <Menu mnemonicParsing="false" text="Herramientas">
-               <items>
-                  <Menu mnemonicParsing="false" text="Ortografía y gramática">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
-                  <MenuItem mnemonicParsing="false" text="Contar Palabras" />
-                  <MenuItem mnemonicParsing="false" text="Citas" />
-                  <MenuItem mnemonicParsing="false" text="Números de línea" />
-                  <MenuItem mnemonicParsing="false" text="Explorar" />
-                  <MenuItem mnemonicParsing="false" text="Objetos vinculados" />
-                  <MenuItem mnemonicParsing="false" text="Diccionario" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Traducir documento" />
-                  <MenuItem mnemonicParsing="false" text="Escribir por voz" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Ajustes de notificaciones" />
-                  <MenuItem mnemonicParsing="false" text="Preferencias" />
-                  <MenuItem mnemonicParsing="false" text="Accesibilidad" />
-               </items>
+            <Menu mnemonicParsing="false" text="Alinear y aplicar sangría">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_format_indent_increase_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+                <MenuItem mnemonicParsing="false" text="Izquierda">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../../img/baseline_format_align_left_black_18dp.png" />
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Centrar">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../../img/baseline_format_align_center_black_18dp.png" />
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Derecha">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../../img/baseline_format_align_right_black_18dp.png" />
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Justificado">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../../img/baseline_format_align_justify_black_18dp.png" />
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Aumentar Sangria">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../../img/baseline_format_indent_increase_black_18dp.png" />
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Reducir Sangria">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../../img/baseline_format_indent_decrease_black_18dp.png" />
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
+                <MenuItem mnemonicParsing="false" text="Opciones de Sangria" />
             </Menu>
-            <Menu mnemonicParsing="false" text="Ayuda">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Ayuda" />
-                  <MenuItem mnemonicParsing="false" text="Formación" />
-                  <MenuItem mnemonicParsing="false" text="Actualizaciones" />
-               </items>
+            <Menu mnemonicParsing="false" text="Interlineado y espaciado entre párrafos">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_format_line_spacing_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+                <CheckMenuItem mnemonicParsing="false" text="Sencillo" />
+                <CheckMenuItem mnemonicParsing="false" text="1,15" />
+                <CheckMenuItem mnemonicParsing="false" text="1,5" />
+                <CheckMenuItem mnemonicParsing="false" text="Doble" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <CheckMenuItem mnemonicParsing="false" text="Añadir espacio antes del párrafo" />
+                <CheckMenuItem mnemonicParsing="false" text="añadir espacio después del parrafo" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <CheckMenuItem mnemonicParsing="false" text="Espaciado Personalizado" />
             </Menu>
-      </menus>
-         <contextMenu>
-            <ContextMenu>
-              <items>
-                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-              </items>
-            </ContextMenu>
-         </contextMenu>
+            <MenuItem mnemonicParsing="false" text="Columnas">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_view_column_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Viñetas y Numeración">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_format_list_bulleted_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Encabezados y pies de página">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/diseno-con-areas-de-encabezado-y-pie-de-pagina.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Números de página" />
+            <MenuItem mnemonicParsing="false" text="Orientación de la página" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Borrar formato" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="Herramientas">
+            <MenuItem mnemonicParsing="false" text="Ortografía y gramática">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/revision.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Contar Palabras">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_format_align_justify_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Explorar">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_explore_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Traducir">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_translate_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Escribir por voz">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_keyboard_voice_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Ajustes de notificaciones">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_notifications_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Preferencias">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_manage_accounts_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Acesibilidad">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/accessibility.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Ayuda">
+            <MenuItem mnemonicParsing="false" text="Ayuda">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_question_mark_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Formación">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_cast_for_education_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Actualizaciones">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../img/baseline_update_black_18dp.png" />
+                    </ImageView>
+                </graphic>
+            </MenuItem>
+        </Menu>
     </MenuBar>
-      <ToolBar fx:id="toolbarCabecera" opacity="0.72" prefHeight="40.0" prefWidth="200.0">
-         <items>
-            <ImageView fx:id="toolBuscar" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/buscar.png" />
-               </image>
-            </ImageView>
-            <Separator minWidth="-Infinity" orientation="VERTICAL" prefHeight="10.0" visible="false" />
-            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/deshacer.png" />
-               </image>
-            </ImageView>
-            <Separator layoutX="44.0" layoutY="10.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="10.0" visible="false" />
-            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="54.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/rehacer.png" />
-               </image>
-            </ImageView>
-            <Separator layoutX="88.0" layoutY="10.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="10.0" visible="false" />
-            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="98.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/rehacer.png" />
-               </image>
-            </ImageView>
-            <Separator layoutX="132.0" layoutY="10.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="10.0" visible="false" />
-            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="142.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/rehacer.png" />
-               </image>
-            </ImageView>
-            <Separator layoutX="176.0" layoutY="10.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="10.0" visible="false" />
-            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="186.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/rehacer.png" />
-               </image>
-            </ImageView>
-            <Separator layoutX="220.0" layoutY="10.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="10.0" visible="false" />
-            <ComboBox fx:id="zoom" prefHeight="25.0" prefWidth="82.0">
-             <items>
-                 <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="25%" />
-                     <String fx:value="50%" />
-                     <String fx:value="75%" />
-                     <String fx:value="100%" />
-                     <String fx:value="125%" />
-                     <String fx:value="150%" />
-                     <String fx:value="175%" />
-                     <String fx:value="200%" />
-                 </FXCollections>
-             </items>
-            </ComboBox>
-            <Separator layoutX="220.0" layoutY="10.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="10.0" />
-            <ComboBox fx:id="tipotexto" layoutX="214.0" layoutY="10.0" prefHeight="25.0" prefWidth="144.0">
-               <items>
-                  <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="Texto Normal" />
-                     <String fx:value="Titulo" />
-                     <String fx:value="Subtitulo" />
-                     <String fx:value="Encabezado 1" />
-                     <String fx:value="Encabezado 2" />
-                     <String fx:value="Encabezado 3" />
-                  </FXCollections>
-               </items>
-            </ComboBox>
-            <Separator layoutX="300.0" layoutY="10.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="10.0" />
-            <ComboBox fx:id="tipoletra" layoutX="310.0" layoutY="10.0" prefHeight="25.0" prefWidth="133.0">
-               <items>
-                  <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="Texto Normal" />
-                     <String fx:value="Titulo" />
-                     <String fx:value="Subtitulo" />
-                     <String fx:value="Encabezado 1" />
-                     <String fx:value="Encabezado 2" />
-                     <String fx:value="Encabezado 3" />
-                  </FXCollections>
-               </items>
-            </ComboBox>
-            <Separator layoutX="458.0" layoutY="10.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="10.0" />
-         </items>
-         <padding>
+    <ToolBar fx:id="toolbarCabecera" opacity="0.72" prefHeight="40.0" prefWidth="200.0">
+        <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-         <VBox.margin>
+        </padding>
+        <VBox.margin>
             <Insets left="15.0" right="15.0" top="5.0" />
-         </VBox.margin>
-      </ToolBar>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="SOMETIMES">
-         <center>
-            <TextArea fx:id="miTextArea" prefHeight="630.0" prefWidth="950.0" BorderPane.alignment="CENTER" />
-         </center>
-         <left>
-            <Pane prefHeight="637.0" prefWidth="180.0" BorderPane.alignment="CENTER" />
-         </left>
-         <right>
-            <Pane prefHeight="637.0" prefWidth="180.0" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets top="20.0" />
-               </BorderPane.margin>
-               <padding>
-                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-               </padding>
-            </Pane>
-         </right>
-         <VBox.margin>
+        </VBox.margin>
+
+        <Button fx:id="cmdcompartir4" layoutX="625.0" layoutY="10.0" mnemonicParsing="false">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../img/buscar.png" />
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Buscar en el Menu" />
+            </tooltip>
+        </Button>
+        <Button fx:id="cmdcompartir11" layoutX="665.0" layoutY="10.0" mnemonicParsing="false">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../img/undo.png" />
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Deshacer (Crtl +Z)" />
+            </tooltip>
+        </Button>
+        <Button fx:id="cmdundo" layoutX="705.0" layoutY="10.0" mnemonicParsing="false">
+            <graphic>
+                <ImageView fx:id="cmdColorTexto1" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../img/redo.png" />
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Rehacer (Crtl +Y)" />
+            </tooltip>
+        </Button>
+        <Button fx:id="cmdcompartir41" layoutX="10.0" layoutY="10.0" mnemonicParsing="false">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../img/print.png" />
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Imprimir (Ctrl +P)" />
+            </tooltip>
+        </Button>
+        <Button fx:id="cmdcompartir111" layoutX="50.0" layoutY="10.0" mnemonicParsing="false">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../img/revision.png" />
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Comprobación Ortografica (Crtl + Alt + X)" />
+            </tooltip>
+        </Button>
+        <Button fx:id="cmdcompartir211" layoutX="90.0" layoutY="10.0" mnemonicParsing="false">
+            <graphic>
+                <ImageView fx:id="cmdColorTexto11" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../img/roller.png" />
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Copiar Formato" />
+            </tooltip>
+        </Button>
+        <Separator layoutX="220.0" layoutY="10.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="10.0" visible="false" />
+        <ComboBox fx:id="zoom" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: cbcbee;">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="25%" />
+                    <String fx:value="50%" />
+                    <String fx:value="75%" />
+                    <String fx:value="100%" />
+                    <String fx:value="125%" />
+                    <String fx:value="150%" />
+                    <String fx:value="175%" />
+                    <String fx:value="200%" />
+                </FXCollections>
+            </items>
+            <tooltip>
+                <Tooltip text="Zoom" />
+            </tooltip>
+        </ComboBox>
+        <Separator layoutX="220.0" layoutY="10.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="10.0" />
+        <ComboBox fx:id="tipotexto" layoutX="214.0" layoutY="10.0" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: cbcbee;">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Texto Normal" />
+                    <String fx:value="Titulo" />
+                    <String fx:value="Subtitulo" />
+                    <String fx:value="Encabezado 1" />
+                    <String fx:value="Encabezado 2" />
+                    <String fx:value="Encabezado 3" />
+                </FXCollections>
+            </items>
+            <tooltip>
+                <Tooltip text="Estilos" />
+            </tooltip>
+        </ComboBox>
+        <Separator layoutX="300.0" layoutY="10.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="10.0" />
+        <ComboBox fx:id="tipoletra" layoutX="310.0" layoutY="10.0" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: cbcbee;">
+            <tooltip>
+                <Tooltip text="Fuente" />
+            </tooltip>
+        </ComboBox>
+        <Separator layoutX="458.0" layoutY="10.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="10.0" />
+        <ColorPicker prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: cbcbee;">
+            <tooltip>
+                <Tooltip text="Color de Texto" />
+            </tooltip>
+            <value>
+                <Color />
+            </value>
+        </ColorPicker>
+        <Button fx:id="cmdcompartir31" layoutX="760.0" layoutY="10.0" mnemonicParsing="false">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../img/baseline_text_decrease_black_18dp.png" />
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Aumentar Tamaño Letra" />
+            </tooltip>
+        </Button>
+        <Button fx:id="cmdcompartir3" layoutX="770.0" layoutY="10.0" mnemonicParsing="false">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../img/baseline_text_increase_black_18dp.png" />
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Reducir Tamaño Letra" />
+            </tooltip>
+        </Button>
+        <Separator layoutX="605.0" layoutY="10.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="10.0" />
+        <Button fx:id="cmdcompartir" mnemonicParsing="false">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../img/bold.png" />
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="negrita" />
+            </tooltip>
+        </Button>
+        <Button fx:id="cmdcompartir1" layoutX="775.0" layoutY="10.0" mnemonicParsing="false">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../img/cursiva.png" />
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Cursiva" />
+            </tooltip>
+        </Button>
+        <Button fx:id="cmdcompartir2" layoutX="775.0" layoutY="10.0" mnemonicParsing="false">
+            <graphic>
+                <ImageView fx:id="cmdColorTexto" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../img/underline.png" />
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Subrayado" />
+            </tooltip>
+        </Button>
+    </ToolBar>
+    <BorderPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="SOMETIMES">
+        <center>
+            <TextArea fx:id="miTextArea" maxWidth="900.0" minWidth="400.0" prefHeight="614.0" prefWidth="739.0" BorderPane.alignment="CENTER">
+                <BorderPane.margin>
+                    <Insets bottom="10.0" />
+                </BorderPane.margin>
+            </TextArea>
+        </center>
+        <VBox.margin>
             <Insets top="20.0" />
-         </VBox.margin>
-         <bottom>
-            <Pane prefHeight="20.0" prefWidth="960.0" BorderPane.alignment="CENTER" />
-         </bottom>
-      </BorderPane>
-  </children>
+        </VBox.margin>
+        <left>
+            <Region prefHeight="614.0" prefWidth="202.0" BorderPane.alignment="CENTER" />
+        </left>
+        <right>
+            <Region prefHeight="614.0" prefWidth="201.0" BorderPane.alignment="CENTER" />
+        </right>
+    </BorderPane>
 </VBox>

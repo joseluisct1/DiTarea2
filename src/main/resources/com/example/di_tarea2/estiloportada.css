@@ -1,7 +1,13 @@
 /* Estilo para la portada de la aplicación */
+#gridportada{
+    -fx-background-color: white;
+
+
+}
 .root {
-    -fx-background-color: #c9c6c6;
+    -fx-background-color: white;
     -fx-font-family: 'Arial';
+
 }
 
 .button {
@@ -16,12 +22,9 @@
     -fx-text-fill: #fff; /* Cambia el color del texto cuando se pasa el ratón */
 }
 
+
 .label {
     -fx-text-fill: A0A9D6; /* Color del texto de la etiqueta */
-    -fx-font-size: 16px; /* Tamaño de fuente de la etiqueta */
-}
-.menu-bar{
-    -fx-text-fill: black;
+    -fx-font-size: 26; /* Tamaño de fuente de la etiqueta */
 }
 
-/* Puedes agregar más estilos según tus necesidades */
