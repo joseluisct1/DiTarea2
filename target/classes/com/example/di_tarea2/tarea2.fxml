@@ -34,7 +34,7 @@
           <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="191.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-              <Button alignment="CENTER" contentDisplay="TOP" onAction="#abrirProcesadorFXML" prefHeight="160.0" prefWidth="188.0" scaleShape="false" styleClass="button" text="En desarrollo" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" GridPane.rowIndex="2">
+              <Button alignment="CENTER" contentDisplay="TOP" prefHeight="160.0" prefWidth="188.0" scaleShape="false" styleClass="button" text="En desarrollo" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" GridPane.rowIndex="2">
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -64,14 +64,14 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER" contentDisplay="TOP" layoutX="108.0" layoutY="15.0" onAction="#abrirProcesadorFXML" prefHeight="160.0" prefWidth="188.0" scaleShape="false" styleClass="button" text="En desarrollo" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Button alignment="CENTER" contentDisplay="TOP" layoutX="108.0" layoutY="15.0" onAction="#abrirCalculadoraFXML" prefHeight="160.0" prefWidth="188.0" scaleShape="false" styleClass="button" text="En desarrollo" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font name="Arial Black" size="17.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../img/construccion.png" />
+                        <Image url="@../../../img/configuraciones.png" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="CLOSED_HAND" />

@@ -17,7 +17,7 @@ public class tarea2Controller {
             Stage stage = new Stage();
             stage.setTitle("Procesador");
             stage.setScene(new Scene(root, 1200, 900));
-            stage.getScene().getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            stage.getScene().getStylesheets().add(getClass().getResource("estiloprocesador.css").toExternalForm());
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -31,7 +31,21 @@ public class tarea2Controller {
             Stage stage = new Stage();
             stage.setTitle("Hoja de Calculo");
             stage.setScene(new Scene(root, 1200, 900));
-            stage.getScene().getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            stage.getScene().getStylesheets().add(getClass().getResource("estilohojacalculo.css").toExternalForm());
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Manejar la excepción, por ejemplo, mostrar un mensaje de error
+        }
+    }
+    public void abrirCalculadoraFXML(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("calculadora.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Calculadora Cientifica");
+            stage.setScene(new Scene(root, 600, 300));
+            stage.getScene().getStylesheets().add(getClass().getResource("estilocalculadora.css").toExternalForm());
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();

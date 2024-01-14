@@ -9,33 +9,45 @@
 
 }
 #toolbarCabecera{
-    -fx-background-color: #cbcbee;
+    -fx-background-color: #b2e7b2;
     -fx-background-radius: 15;
 }
 
 
 .button{
-    -fx-background-color: #cbcbee;
-    -fx-border-color: #cbcbee;
+    -fx-background-color: #b2e7b2;
+    -fx-border-color: #b2e7b2;
     -fx-border-width: 0;
 }
 .button:hover{
-    -fx-background-color: #acacef;
+    -fx-background-color: #557955;
 }
+
+
+
 #cmdset, #cmdIdioma, #cmdaccesi ,#cmdusuario{
     -fx-background-color: white;
 
 }
 #cmdset:hover, #cmdIdioma:hover, #cmdaccesi:hover, #cmdusuario:hover{
-    -fx-background-color: #acacef;
+    -fx-background-color: #557955;
 
 }
 
 .combo-box{
     -fx-font-family: "Arial Black";
 }
+.table-view .column-header > .label {
+    -fx-background-color: #b2e7b2;
 
-
+}
+.table-view{
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+}
+.split-pane{
+    -fx-border-style: none;
+}
 
 
 
